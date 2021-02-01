@@ -1,14 +1,41 @@
 # msa_flutter_plugin
 
-A new Flutter plugin.
+A new Flutter plugin for MSA SDK.
 
-## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## How to Use?
+- 在pubspec.yaml中添加插件依赖
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```
+dependencies:
+  flutter:
+    sdk: flutter
+  msa_flutter_plugin: ^1.0.25
+```
+
+- Add the following imports to your Dart code，example:
+```
+import 'package:msa_flutter_plugin/msa_flutter_plugin.dart';
+...
+
+class _MyHomePageState extends State<MyHomePage> {
+  ...
+  MSAData _data;
+
+  Future<void> initMSAtate() async {
+    MSAData data = await MsaFlutterPlugin.getMsaIdConfigs();
+    
+    if (!mounted) return;
+
+    setState(() {
+      _data = data;
+      print("是否支持MSA：${data.isSupport}");
+      print("oaid:${data.oaid}");
+      print("vaid:${data.vaid}");
+      print("aaid:${data.aaid}");
+    });
+  }
+...
+}
+
+```
