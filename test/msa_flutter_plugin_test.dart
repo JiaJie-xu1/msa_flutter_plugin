@@ -18,6 +18,7 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await MsaFlutterPlugin.platformVersion, '42');
+    expect(await MsaFlutterPlugin.getMsaIdConfigs().then((value) => value.oaid),
+        '42');
   });
 }
