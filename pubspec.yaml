@@ -1,8 +1,7 @@
 name: msa_flutter_plugin
-description: A new Flutter plugin.
-version: 0.0.1
-author:
-homepage:
+description: A new Flutter plugin for MSA OAID.
+version: 1.0.25
+homepage: https://github.com/JiaJie-xu1/msa_flutter_plugin
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

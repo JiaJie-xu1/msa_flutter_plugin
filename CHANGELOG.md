@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.0.25
 
-* TODO: Describe initial release.
+* Update MSA SDK to v1.0.25.
