@@ -14,34 +14,26 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  MSAData _data;
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    initMSAtate();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await MsaFlutterPlugin.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    MSAData data;
-    data = await MsaFlutterPlugin.getMsaIdConfigs();
-    print("是否支持oaid：${data.isSupport} ;获取oaid:${data.oaid}");
+  Future<void> initMSAtate() async {
+    MSAData data = await MsaFlutterPlugin.getMsaIdConfigs();
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _data = data;
+      print("是否支持oaid：${data.isSupport}");
+      print("获取oaid:${data.oaid}");
     });
   }
 
@@ -53,7 +45,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: ${MsaFlutterPlugin.platformVersion}\n'),
+          child: Text('msa oaid: ${_data?.oaid}\n'),
         ),
       ),
     );
