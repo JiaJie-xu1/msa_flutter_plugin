@@ -22,7 +22,7 @@ public class MsaFlutterPlugin : FlutterPlugin, MethodCallHandler {
     /// when the Flutter Engine is detached from the Activity
     private lateinit var channel: MethodChannel
     private lateinit var applicationContext: Context
-    private lateinit var map: Map<String, Any>
+    private var map: Map<String, Any> = mapOf("isSupport" to false, "oaid" to "", "vaid" to "", "aaid" to "")
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         onAttachedToEngine(flutterPluginBinding.applicationContext, flutterPluginBinding.binaryMessenger)
