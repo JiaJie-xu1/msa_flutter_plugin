@@ -10,7 +10,7 @@ A new Flutter plugin for MSA SDK.
 dependencies:
   flutter:
     sdk: flutter
-  msa_flutter_plugin: ^1.0.25
+  msa_flutter_plugin: ^1.0.25+1
 ```
 
 - Add the following imports to your Dart code，example:
